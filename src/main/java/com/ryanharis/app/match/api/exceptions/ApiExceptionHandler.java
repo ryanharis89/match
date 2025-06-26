@@ -49,24 +49,6 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     return new ResponseEntity<>(ApiErrorDetails.GENERIC_ERROR, HttpStatus.INTERNAL_SERVER_ERROR);
   }
 
-  /*@ExceptionHandler(ConstraintViolationException.class)
-  public ResponseEntity<ApiErrorDetails> handleConstraintViolationException(final ConstraintViolationException e,
-      final WebRequest request) {
-    final Optional<ConstraintViolation<?>> any =
-        e.getConstraintViolations().stream().findAny();
-    final ResponseEntity<ApiErrorDetails> response;
-    if (any.isPresent()) {
-      final String errorMessage =
-          MessageFormat.format(ApiErrorDetails.BAD_REQUEST_DET.getErrorMessage(), any.get().getMessage());
-
-      response = new ResponseEntity<>(new ApiErrorDetails(ApiErrorDetails.BAD_REQUEST_DET.getErrorCode(), errorMessage),
-          HttpStatus.BAD_REQUEST);
-    } else {
-      response = new ResponseEntity<>(ApiErrorDetails.GENERIC_ERROR, HttpStatus.INTERNAL_SERVER_ERROR);
-    }
-    return response;
-  }*/
-
   @Override
   protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex,
       HttpHeaders headers, HttpStatusCode status, WebRequest request) {

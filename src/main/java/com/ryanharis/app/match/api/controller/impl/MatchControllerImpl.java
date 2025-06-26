@@ -29,27 +29,22 @@ public class MatchControllerImpl implements MatchController {
 
   @Override
   public List<MatchDto> getAll() throws MatchAppException {
-    // LOGGER.info("Received GET HTTP call to retrieve all matches");
     return matchService.getAll().stream().map(matchMapper::toDto).collect(Collectors.toList());
   }
 
   @Override
   public MatchDto getById(Long id) throws MatchAppException {
-    // LOGGER.info("Received GET HTTP call to retrieve match with id:{}", id);
     return matchMapper.toDto(matchService.getById(id));
   }
 
   @Override
   public MatchDto create(MatchDto matchDto) throws MatchAppException {
-    // LOGGER.info("Received POST HTTP call to create match with provided data:{}", matchDto);
     Match match = matchMapper.toEntity(matchDto);
     return matchMapper.toDto(matchService.create(match));
   }
 
   @Override
   public MatchDto update(Long id, MatchDto matchDto) throws MatchAppException {
-    // LOGGER.info("Received PUT HTTP call to update match with id:{} and update data:{}", id, matchDto);
-
     if (!id.equals(matchDto.getId())) {
       LOGGER.error("Mismatch between provided id:{} and dto.id:{}", id, matchDto.getId());
       throw new MatchAppException(MatchAppErrorDetails.BAD_REQUEST,
@@ -61,7 +56,6 @@ public class MatchControllerImpl implements MatchController {
 
   @Override
   public void delete(Long id) throws MatchAppException {
-    // LOGGER.info("Received DELETE HTTP call to remove match with id:{}", id);
     matchService.delete(id);
   }
 }

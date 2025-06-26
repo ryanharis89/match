@@ -1,0 +1,22 @@
+{
+  "description": "Greek Football Derby Test",
+  "matchDate": "30/08/2025",
+  "matchTime": "20:30",
+  "teamA": "Panathinaikos FC",
+  "teamB": "Olympiakos FC",
+  "sport": "FOOTBALL",
+  "odds": [
+    {
+      "specifier": "1",
+      "odd": 1.87
+    },
+    {
+      "specifier": "2",
+      "odd": 1.53
+    },
+    {
+      "specifier": "X",
+      "odd": 2.0
+    }
+  ]
+}
